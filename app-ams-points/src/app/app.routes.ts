@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { AuthComponent } from './pages/auth/auth.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { Error500Component } from './pages/errors/error-500/error-500.component';
+import { Error404Component } from './pages/errors/error-404/error-404.component';
 
 export const routes: Routes = [
     {
@@ -11,5 +13,13 @@ export const routes: Routes = [
         path:'',
         component:AuthComponent
     },
+    {
+        path:'sin-acceso',
+        component:Error500Component
+    },
+    {
+        path:'**',
+        component:Error404Component
+    }
 
 ];
