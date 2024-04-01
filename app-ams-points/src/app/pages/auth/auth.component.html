@@ -1,1 +1,17 @@
-<p>auth works!</p>
+<div class="flex justify-center items-center h-screen">
+    <div class="max-sm:w-11/12 max-sm:-mt-24 sm:p-6 md:p-8 p-4 bg-white border border-gray-200 rounded-lg shadow-2xl">
+        <form class="space-y-6" action="#" (submit)="btnLogin()">
+            <h5 class="text-xl font-medium text-gray-900 dark:text-white">Bienvenido de nuevo</h5>
+            <img class="w-1/2 block m-auto" src="../../../assets/image/login.svg" alt="">
+            <div class="relative">
+                <input type="email" id="email" class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-gray-100  border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder="Ingrese su correo electronico" />
+                <label for="email" class="font-medium absolute text-sm font-semiboldtext-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500 ">Correo electronico</label>
+            </div>
+            <div class="relative">
+                <input type="password" id="password" class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-gray-100  border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder="Ingrese su contraseña" />
+                <label for="password" class="font-medium absolute text-sm font-semiboldtext-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500 ">Contraseña</label>
+            </div>
+            <button type="submit"  class="w-full text-white bg-rose-500 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Ingresar</button>
+        </form>
+    </div>
+</div>

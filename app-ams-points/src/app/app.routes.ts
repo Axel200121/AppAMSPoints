@@ -4,7 +4,12 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
-        path:'',
+        path:'home',
         component:DashboardComponent
-    }
+    },
+    {
+        path:'',
+        component:AuthComponent
+    },
+
 ];
