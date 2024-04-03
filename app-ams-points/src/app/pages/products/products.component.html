@@ -1,0 +1,311 @@
+<!-- Sidebar -->
+<app-sidebar></app-sidebar>
+<!-- Contenedor principal -->
+<div class="sm:ml-64">
+    <!-- Header -->
+    <app-header></app-header>
+    <!-- Contenido -->
+    <main class=" bg-gray-200">
+        <div class="p-2 border-2 border-dashed rounded-lg">
+            <div class="px-2 mb-2 rounded bg-gray-50">
+                <div class="mx-4 pt-10 py-6">
+                    <app-breadcrumb [items]="listBreadcrumb"></app-breadcrumb>
+                    <br>
+                    <h1 class="title-panel max-sm:text-lg max-md:text-lg text-2xl font-medium text-slate-600">PANEL DE CONTROL DE PRODUCTOS</h1>
+                </div>
+                <div class="mx-3 py-6">
+                    <div class="content-title-search flex items-center mb-6">
+                        <i class="fa-solid fa-magnifying-glass text-xl font-bold text-rose-400 max-sm:text-lg"></i>
+                        <h1 class="ml-2 text-xl text-slate-600 font-medium max-sm:text-lg">Buscar información</h1>
+                    </div>
+                    
+                    <div class="content-inputs grid grid-cols-3 gap-4  max-md:grid-cols-1">
+                        <div class="relative">
+                            <input type="text" id="name" class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-gray-100 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer" placeholder="Ingrese nombre del producto a buscar" />
+                            <label for="email1" class="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500">Nombre del producto</label>
+                        </div>
+                        <div class="relative">
+                            <label for="email1" class="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500">Seleccione un estado</label>
+                            <select id="underline_select" class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm  bg-gray-100 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer">
+                                <option selected class="text-gray-500">-    -   -   -   -   -   -   -</option>
+                                <option value="US">Activado</option>
+                                <option value="CA">Desactivado</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <label for="email1" class="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500">Seleccione una categoria</label>
+                            <select id="underline_select" class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm  bg-gray-100 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer">
+                                <option selected class="text-gray-500">-    -   -   -   -   -   -   -</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="FR">France</option>
+                                <option value="DE">Germany</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="w-full text-white bg-rose-500 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Buscar</button>
+                        </div>
+                        <div class="">
+                            <button type="submit"
+                                class="w-full text-white bg-teal-600 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="mx-3 flex items-center max-sm:justify-center gap-2 mb-3">
+                    <div>
+                        <button (click)="openSaveModalUser()" data-modal-target="crud-modal" data-modal-toggle="crud-modal"  type="submit" class="max-sm:w-full text-white bg-rose-500 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm   px-5 py-2.5 text-center"><i class="fa-solid fa-plus pr-2"></i>Agregar producto</button>
+                    </div>
+                    <div>
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="max-sm:w-full text-white bg-teal-600 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm  px-5 py-2.5 text-center inline-flex items-center" type="button">Más acciones 
+                            <i class="fa-solid fa-chevron-down pl-3"></i>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-file-pdf pr-2"></i>Exportar a PDF</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-file-excel pr-2"></i> Exportar a excel</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa-solid fa-upload pr-2"></i>Carga masiva</a>
+                                </li>
+              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-3  relative overflow-x-auto border-solid border  sm:rounded-lg">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">#</th>
+                                <th scope="col" class="px-6 py-3">Nombre</th>
+                                <th scope="col" class="px-6 py-3">Descripción</th>
+                                <th scope="col" class="px-6 py-3">Precio Venta</th>
+                                <th scope="col" class="px-6 py-3">Categoria</th>
+                                <th scope="col" class="px-6 py-3">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">
+                                    Apple MacBook Pro 17"
+                                </th>
+                                <td class="px-6 py-4 font-medium">Silver</td>
+                                <td class="px-6 py-4 font-medium">Laptop</td>
+                                <td class="px-6 py-4 font-medium">$2999</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a (click)="openEditarModalUser()"data-modal-target="crud-modal" data-modal-toggle="crud-modal"  class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-teal-600 rounded-lg hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-rose-500 rounded-lg hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">
+                                    Apple MacBook Pro 17"
+                                </th>
+                                <td class="px-6 py-4 font-medium">Silver</td>
+                                <td class="px-6 py-4 font-medium">Laptop</td>
+                                <td class="px-6 py-4 font-medium">$2999</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-teal-600 rounded-lg hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-rose-500 rounded-lg hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">
+                                    Apple MacBook Pro 17"
+                                </th>
+                                <td class="px-6 py-4 font-medium">Silver</td>
+                                <td class="px-6 py-4 font-medium">Laptop</td>
+                                <td class="px-6 py-4 font-medium">$2999</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-teal-600 rounded-lg hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-rose-500 rounded-lg hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">
+                                    Apple MacBook Pro 17"
+                                </th>
+                                <td class="px-6 py-4 font-medium">Silver</td>
+                                <td class="px-6 py-4 font-medium">Laptop</td>
+                                <td class="px-6 py-4 font-medium">$2999</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-teal-600 rounded-lg hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-rose-500 rounded-lg hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">
+                                    Apple MacBook Pro 17"
+                                </th>
+                                <td class="px-6 py-4 font-medium">Silver</td>
+                                <td class="px-6 py-4 font-medium">Laptop</td>
+                                <td class="px-6 py-4 font-medium">$2999</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-teal-600 rounded-lg hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-rose-500 rounded-lg hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">
+                                    Apple MacBook Pro 17"
+                                </th>
+                                <td class="px-6 py-4 font-medium">Silver</td>
+                                <td class="px-6 py-4 font-medium">Laptop</td>
+                                <td class="px-6 py-4 font-medium">$2999</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-teal-600 rounded-lg hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-rose-500 rounded-lg hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between py-4 px-4" aria-label="Table navigation">
+                        <span
+                            class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing
+                            <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of <span
+                                class="font-semibold text-gray-900 dark:text-white">1000</span></span>
+                        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                            </li>
+                            <li>
+                                <a href="#" aria-current="page"
+                                    class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <app-footer></app-footer>
+</div>
+
+
+<!--CODIGO HTML DEL MODAL-->
+
+<!-- Main modal -->
+<div id="crud-modal" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-2xl font-semibold  dark:text-white">
+                    <i class="fa-solid fa-people-carry-box"></i>
+                    {{modalTitle}} la siguiente información
+                </h3>
+                <button type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-toggle="crud-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form class="p-4 md:p-5">
+                <img class="w-2/5 block m-auto" src="../../../assets/image/add-product.svg" alt="">
+                <br>
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <div class="relative">
+                            <input type="text" id="name"
+                                class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-gray-100 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer"
+                                placeholder="Ingrese nombre del producto a buscar" />
+                            <label for="email1"
+                                class="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500">Nombre
+                                del producto</label>
+                        </div>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <div class="relative">
+                            <input type="number" id="name"
+                                class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-gray-100 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer"
+                                placeholder="Asigne un precio al producto" />
+                            <label for="email1"
+                                class="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500">Asigne
+                                un precio</label>
+                        </div>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <div class="relative">
+                            <label for="email1"
+                                class="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500">Seleccione
+                                una categoria</label>
+                            <select id="underline_select"
+                                class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm  bg-gray-100 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer">
+                                <option selected class="text-gray-500">- - - - - - - -</option>
+                                <option value="US">Activado</option>
+                                <option value="CA">Desactivado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-span-2">
+                        <div class="relative">
+                            <textarea type="text" rows="2" id="name"
+                                class="font-medium block rounded-t-lg px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-gray-100 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-rose-500 peer"
+                                placeholder="Ingrese una breve descripción"></textarea>
+                            <label for="email1"
+                                class="absolute text-sm font-semibold text-gray-500 duration-300 transform -translate-y-4 scale-75 top-5 z-10 origin-[0] start-2.5 peer-focus:text-rose-500 peer-focus:dark:text-rose-500">Descripción</label>
+                        </div>
+                    </div>
+                </div>
+                @if (modalTitle =="Agrega") {
+                    <button type="submit"
+                    class="text-white inline-flex items-center bg-rose-500 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <i class="fa-solid fa-plus pr-2"></i>
+                    Agregar
+                    </button>
+                 
+                }
+                @if (modalTitle =="Modifica") {
+                    <button type="submit"
+                    class="text-white inline-flex items-center bg-rose-500 hover:bg-rose-600 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <i class="fa-solid fa-pen-to-square pr-2"></i>
+                    Modificar
+                    </button>
+                 
+                }
+                
+            </form>
+        </div>
+    </div>
+</div>
