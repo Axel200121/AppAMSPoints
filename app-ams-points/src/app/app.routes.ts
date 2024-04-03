@@ -4,6 +4,12 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { Error500Component } from './pages/errors/error-500/error-500.component';
 import { Error404Component } from './pages/errors/error-404/error-404.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { ClientsComponent } from './pages/clients/clients.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { ProvidersComponent } from './pages/providers/providers.component';
+import { ExpensesComponent } from './pages/expenses/expenses.component';
+import { SaleComponent } from './pages/sale/sale.component';
+import { ReportsComponent } from './pages/reports/reports.component';
 
 export const routes: Routes = [
     {
@@ -17,6 +23,30 @@ export const routes: Routes = [
     {
         path:"products",
         component:ProductsComponent
+    },
+    {
+        path:"clients",
+        component:ClientsComponent
+    },
+    {
+        path:"users",
+        component:UsuariosComponent
+    },
+    {
+        path:"providers",
+        component:ProvidersComponent
+    },
+    {
+        path:"expenses",
+        component:ExpensesComponent
+    },
+    {
+        path:"sales",
+        component:SaleComponent
+    },
+    {
+        path:"reports",
+        component:ReportsComponent
     },
     {
         path:"sin-acceso",
