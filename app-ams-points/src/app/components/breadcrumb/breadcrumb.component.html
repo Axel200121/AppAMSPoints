@@ -1,0 +1,14 @@
+<nav class="flex" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+        @for (item of items ; track item.id) {
+            <li class="inline-flex items-center">
+                <a routerLink="/{{item.route}}"class="inline-flex items-center text-base font-medium text-gray-700 hover:text-blue-600">
+                    <i class="fa-solid {{item.icon}} mr-2 "></i>
+                    {{item.name}}
+                </a>
+            </li> 
+            <p>/</p>
+        }
+    </ol>
+</nav>
+  
