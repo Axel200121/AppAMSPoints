@@ -1,1 +1,227 @@
-<p>providers works!</p>
+<!-- Sidebar -->
+<app-sidebar></app-sidebar>
+<!-- Contenedor principal -->
+<div class="flex flex-col h-screen sm:ml-64">
+    <!-- Header -->
+    <app-header></app-header>
+    <!-- Contenido -->
+    <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
+        <div class="p-2 border-2 border-dashed rounded-lg">
+            <div class="px-2 mb-2 rounded bg-white">
+                <div class="mx-4 pt-10 py-6">
+                    <app-breadcrumb [items]="listBreadcrumb"></app-breadcrumb>
+                    <br>
+                    <h1 class="title-panel">PANEL DE CONTROL DE PROVEEDORES</h1>
+                </div>
+
+                <div class="mx-3 py-6">
+                    <div class="content-title-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h1>Buscar información</h1>
+                    </div>
+                    <div class="content-input-search">
+                        <div class="col-span-3 relative">
+                            <input type="text" id="name" class="input-style peer" placeholder="Ingrese nombre del proveedor a buscar" />
+                            <label for="name" class="label-input">Nombre del proveedor</label>
+                        </div>
+                        <div class="max-sm:col-span-3">
+                            <button type="submit" class="w-full btn-primary">Buscar</button>
+                        </div>
+                        <div class="max-sm:col-span-3">
+                            <button type="submit" class="w-full btn-secondary">Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+                <div class="content-more-actions">
+                    <div>
+                        <button (click)="openSaveModalUser()" data-modal-target="crud-modal" data-modal-toggle="crud-modal"  type="submit" class="max-sm:w-full btn-primary">
+                            <i class="fa-solid fa-plus pr-2"></i>
+                            Agregar proveedor
+                        </button>
+                    </div>
+                    <div>
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="max-sm:w-full btn-secondary" type="button">
+                            Más acciones 
+                            <i class="fa-solid fa-chevron-down pl-3"></i>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="hidden">
+                            <ul aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="#"><i class="fa-solid fa-file-pdf pr-2"></i>Exportar a PDF</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa-solid fa-file-excel pr-2"></i> Exportar a excel</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa-solid fa-upload pr-2"></i>Carga masiva</a>
+                                </li>
+              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="px-6 py-3">#</th>
+                                <th scope="col" class="px-6 py-3">Nombre</th>
+                                <th scope="col" class="px-6 py-3">Telefono</th>
+                                <th scope="col" class="px-6 py-3">Correo Electronico</th>
+                                <th scope="col" class="px-6 py-3">Dirección</th>
+                                <th scope="col" class="px-6 py-3">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">Inetum Holding</th>
+                                <td class="px-6 py-4 font-medium">7721142874</td>
+                                <td class="px-6 py-4 font-medium">axelmartinez21&#64;gmail.com</td>
+                                <td class="px-6 py-4 font-medium">Manzana la central, San Pablo Oxtotipan, Alfajayucan Hidalgo</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a (click)="openEditarModalUser()"data-modal-target="crud-modal" data-modal-toggle="crud-modal"  class="btn-table-edit "><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="btn-table-delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">Inetum Holding</th>
+                                <td class="px-6 py-4 font-medium">7721142874</td>
+                                <td class="px-6 py-4 font-medium">axelmartinez21&#64;gmail.com</td>
+                                <td class="px-6 py-4 font-medium">Manzana la central, San Pablo Oxtotipan, Alfajayucan Hidalgo</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a (click)="openEditarModalUser()"data-modal-target="crud-modal" data-modal-toggle="crud-modal"  class="btn-table-edit "><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="btn-table-delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">Inetum Holding</th>
+                                <td class="px-6 py-4 font-medium">7721142874</td>
+                                <td class="px-6 py-4 font-medium">axelmartinez21&#64;gmail.com</td>
+                                <td class="px-6 py-4 font-medium">Manzana la central, San Pablo Oxtotipan, Alfajayucan Hidalgo</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a (click)="openEditarModalUser()"data-modal-target="crud-modal" data-modal-toggle="crud-modal"  class="btn-table-edit "><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="btn-table-delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">Inetum Holding</th>
+                                <td class="px-6 py-4 font-medium">7721142874</td>
+                                <td class="px-6 py-4 font-medium">axelmartinez21&#64;gmail.com</td>
+                                <td class="px-6 py-4 font-medium">Manzana la central, San Pablo Oxtotipan, Alfajayucan Hidalgo</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a (click)="openEditarModalUser()"data-modal-target="crud-modal" data-modal-toggle="crud-modal"  class="btn-table-edit "><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="btn-table-delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">Inetum Holding</th>
+                                <td class="px-6 py-4 font-medium">7721142874</td>
+                                <td class="px-6 py-4 font-medium">axelmartinez21&#64;gmail.com</td>
+                                <td class="px-6 py-4 font-medium">Manzana la central, San Pablo Oxtotipan, Alfajayucan Hidalgo</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a (click)="openEditarModalUser()"data-modal-target="crud-modal" data-modal-toggle="crud-modal"  class="btn-table-edit "><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="btn-table-delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">878238</td>
+                                <th scope="row" class="px-6 py-4 font-medium">Inetum Holding</th>
+                                <td class="px-6 py-4 font-medium">7721142874</td>
+                                <td class="px-6 py-4 font-medium">axelmartinez21&#64;gmail.com</td>
+                                <td class="px-6 py-4 font-medium">Manzana la central, San Pablo Oxtotipan, Alfajayucan Hidalgo</td>
+                                <td class="px-6 py-4 flex flex-row gap-2">
+                                    <a (click)="openEditarModalUser()"data-modal-target="crud-modal" data-modal-toggle="crud-modal"  class="btn-table-edit "><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="btn-table-delete"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+              
+                  
+                        </tbody>
+                    </table>
+                    <nav class="pagination-content flex-column" aria-label="Table navigation">
+                        <span class="text-sm font-normal text-gray-500 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing
+                            <span class="font-semibold text-gray-900 ">1-10</span> of 
+                            <span class="font-semibold text-gray-900 ">1000</span></span>
+                        <ul>
+                            <li> <a href="#">Previous</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#" aria-current="page">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <app-footer></app-footer>
+</div>
+
+<!-- Main modal -->
+<div id="crud-modal" tabindex="-1" aria-hidden="true" class="main-content-modal hidden">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal header -->
+            <div class="content-header-modal">
+                <h3 class="max-sm:text-lg text-2xl font-semibold">
+                    <i class="fa-solid fa-truck-field"></i>                    
+                    {{modalTitle}} la siguiente información
+                </h3>
+                <button type="button" class="btn-close-modal" data-modal-toggle="crud-modal">
+                    <i aria-hidden="true" class="fa-solid fa-xmark text-2xl text-slate-700"></i>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form class="p-4 md:p-5">
+                <img class="w-2/5 block m-auto" src="../../../assets/image/add-provider.svg" alt="">
+                <br>
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <div class="relative">
+                            <input type="text" id="name" class="input-style peer" placeholder="Ingrese nombre completo de la empresa" />
+                            <label for="name" class="label-input">Nombre de la empresa</label>
+                        </div>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <div class="relative">
+                            <input type="number" id="phone" class="input-style peer" placeholder="Ingrese el numero telefonico" />
+                            <label for="phone" class="label-input">Numero telefonico</label>
+                        </div>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <div class="relative">
+                            <input type="email" id="email" class="input-style peer" placeholder="Ingrese el correo electronico" />
+                            <label for="email" class="label-input">Correo Electronico</label>
+                        </div>
+                    </div>
+                    <div class="col-span-2">
+                        <div class="relative">
+                            <textarea type="text" rows="2" id="address"  class="input-style peer" placeholder="Ingrese La dirección de la empresa"></textarea>
+                            <label for="address" class="label-input">Dirección</label>
+                        </div>
+                    </div>
+                </div>
+                @if (modalTitle =="Agrega") {
+                    <button type="submit" class="btn-primary"><i class="fa-solid fa-pen-to-square pr-2"></i>Agregar</button>
+                }
+                @if (modalTitle =="Modifica") {
+                    <button type="submit" class="btn-primary"><i class="fa-solid fa-pen-to-square pr-2"></i>Modificar</button>
+                }
+            </form>
+        </div>
+    </div>
+</div>
