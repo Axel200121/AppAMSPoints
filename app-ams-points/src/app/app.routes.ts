@@ -10,6 +10,8 @@ import { ProvidersComponent } from './pages/providers/providers.component';
 import { ExpensesComponent } from './pages/expenses/expenses.component';
 import { SaleComponent } from './pages/sale/sale.component';
 import { ReportsComponent } from './pages/reports/reports.component';
+import { RolesComponent } from './pages/usuarios/roles/roles.component';
+import { LocalComponent } from './pages/usuarios/local/local.component';
 
 export const routes: Routes = [
     {
@@ -31,6 +33,14 @@ export const routes: Routes = [
     {
         path:"users",
         component:UsuariosComponent
+    },
+    {
+        path:"roles",
+        component:RolesComponent
+    },
+    {
+        path:"local",
+        component:LocalComponent
     },
     {
         path:"providers",
